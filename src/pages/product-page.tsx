@@ -161,7 +161,10 @@ export default function ProductPage({
                                     )
                                 }
                             >
-                                Price: {sortOrder === 'low' ? 'Low to High' : 'High to Low'}
+                                Price:{' '}
+                                {sortOrder === 'low'
+                                    ? 'Low to High'
+                                    : 'High to Low'}
                             </button>
                             <div className="category-filters">
                                 {categories.map((category) => (
@@ -169,7 +172,9 @@ export default function ProductPage({
                                         className={`category-filter ${selectedCategory === category ? 'selected' : ''}`}
                                         key={category}
                                         type="button"
-                                        aria-pressed={selectedCategory === category}
+                                        aria-pressed={
+                                            selectedCategory === category
+                                        }
                                         onClick={() =>
                                             setSelectedCategory(category)
                                         }
@@ -262,7 +267,7 @@ export default function ProductPage({
                 </main>
 
                 <aside className="cart">
-                    <h2>Cart</h2>
+                    <h2>Cart ({cart.length})</h2>
                     {cart.length === 0 ? (
                         <p>Your cart is empty.</p>
                     ) : (
